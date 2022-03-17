@@ -1,0 +1,44 @@
+// 179 Advanced Files.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include "Person.h"
+#include "Dog.h"
+
+
+// Overall I'm not entirely happy with where I have everything.  This is a lot more
+// technical than what I normally write.  If you think any big pieces are missing
+// let me know.  Let's see how close we can get on the first try.
+
+// Like who owns the SO headers?  Person and Dog factories make sense.  Although you could
+// also pull the static stuff out in to an explicit Person Factory class.  Can't make the SO in the 
+// Serialize method since you could save five times in a row without loading
+
+int main()
+{
+    Dog* dog1 = nullptr;
+    dog1 = dog1->NewDog();
+// Create
+	// Make three Persons and three Dogs
+
+	// Pretend main is the Master Save Object here.
+	// We have the file stream.  Serialize each object we have and dump them to the stream with header information
+	
+// Manipulate
+	// Correctly find the 2nd dog and change its age to 999
+
+
+		// Close and relaunch the app
+
+
+// Restore
+	// Delete all existing objects through the factories just in case
+	// Read the file to see the next type
+	// Create a SO, fill it out, and send it to right factory
+
+
+// Pointer fixes (after all loads)
+	// We are also in charge of post processing (since we are the Master Save Object)
+	// For each pointer your object has, ask the correct factory for their pointer using the id you have
+
+}
