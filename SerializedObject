@@ -1,0 +1,20 @@
+#pragma once
+struct SerializedObject
+{
+	int mFullSize; // If you were skipping this record, you'd read this byte and jump this far
+	int mClassID; // This tells you what the internal buffer is pointing at
+
+	int mBufferSize = 0;// All char * need to know size of buffer.
+	char* mBuffer; // Points at the squooshed byte version of the object
+};
+/*
+-----------------Record boundary
+int size of record
+int identifier of what kind of object follows
+int size of data block
+Byte version of an object - See Unserialize in correct object to get byte buffer
+-----------------Record boundary
+
+So third record would be to read an int, move forward that far, read an int, move again
+Third Person would be same, except you'd also read the second int to see if it was a Person
+*/
