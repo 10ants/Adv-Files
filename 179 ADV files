@@ -1,29 +1,39 @@
-// 179 Advanced Files.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
 #include "Person.h"
 #include "Dog.h"
-
-
-// Overall I'm not entirely happy with where I have everything.  This is a lot more
-// technical than what I normally write.  If you think any big pieces are missing
-// let me know.  Let's see how close we can get on the first try.
-
-// Like who owns the SO headers?  Person and Dog factories make sense.  Although you could
-// also pull the static stuff out in to an explicit Person Factory class.  Can't make the SO in the 
-// Serialize method since you could save five times in a row without loading
+#include "SerializedObject.h"
+#include <fstream>
+using namespace std;
 
 int main()
 {
-    Dog* dog1 = nullptr;
-    dog1 = dog1->NewDog();
-// Create
-	// Make three Persons and three Dogs
-
-	// Pretend main is the Master Save Object here.
-	// We have the file stream.  Serialize each object we have and dump them to the stream with header information
-	
+    // Make three Persons and three Dogs
+    Dog* d1 = Dog::NewDog();
+    Dog* d2 = Dog::NewDog();
+    Dog* d3 = Dog::NewDog();
+    
+    Person* p1 = Person::NewPerson();
+    Person* p2 = Person::NewPerson();
+    Person* p3 = Person::NewPerson();
+    
+    SerializedObject* dog1 = d1->Serialize();
+    SerializedObject* dog2 = d2->Serialize();
+    SerializedObject* dog3 = d3->Serialize();
+    SerializedObject* person1 = p1->Serialize();
+    SerializedObject* person2 = p2->Serialize();
+    SerializedObject* person3 = p3->Serialize();
+    
+    
+    fstream stream("FindMe.txt", ios::out | ios::binary| ios::app);
+       if(!stream)
+       {
+          cout << "Cannot open file!" << endl;
+          return 1;
+       }
+    while(!stream.fail())
+    {
+        
+    }
 // Manipulate
 	// Correctly find the 2nd dog and change its age to 999
 
