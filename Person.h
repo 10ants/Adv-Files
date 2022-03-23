@@ -26,3 +26,4 @@ private:
 	static std::list<Person*> sAllPeople;
 };
 
+
